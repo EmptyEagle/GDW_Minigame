@@ -12,21 +12,24 @@ public class Target : MonoBehaviour
     private bool isDangerZone;
     private float fireDelay = 0.5f;
     private float fireRate = 1;
+    private StatManager manager;
 
     void Start()
     {
+        manager = GameObject.Find("StatManager").GetComponent<StatManager>();
+        
         numSpawned++;
-        Debug.Log("Spawned: "+ numSpawned);
+        //Debug.Log("Spawned: "+ numSpawned);
 
         if (numSpawned > 15)
         {
             speed = speedThird;
-            Debug.Log("Level 3");
+            //Debug.Log("Level 3");
         }
         else if (numSpawned > 6)
         {
             speed = speedSecond;
-            Debug.Log("Level 2");
+            //Debug.Log("Level 2");
         }
         else
         {
@@ -55,6 +58,6 @@ public class Target : MonoBehaviour
 
     void FireAtPlayer()
     {
-        Debug.Log("Fire");
+        manager.DamagePlayer();
     }
 }

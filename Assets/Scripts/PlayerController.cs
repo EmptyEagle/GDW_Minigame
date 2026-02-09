@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // Player firing projectiles
-        if (Input.GetKeyDown(KeyCode.Space) && canFire)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire1")) && canFire)
         {
             StartCoroutine(FireProjectile());
         }
