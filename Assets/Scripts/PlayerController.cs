@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float maxRangeVertical = 50;
     private bool canFire = true;
     public GameObject projectilePrefab;
+    public AudioSource cannonLaunchSound;
+    public AudioSource cannonReloadSound;
     
     // Update is called once per frame
     void Update()
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // Player firing projectiles
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire1")) && canFire)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && canFire)
         {
             StartCoroutine(FireProjectile());
         }
@@ -49,7 +51,9 @@ public class PlayerController : MonoBehaviour
     {
         canFire = false;
         Instantiate(projectilePrefab, transform.position, transform.rotation);
+        cannonLaunchSound.Play();
         yield return new WaitForSeconds(2);
         canFire = true;
+        cannonReloadSound.Play();
     }
 }

@@ -13,10 +13,12 @@ public class Target : MonoBehaviour
     private float fireDelay = 0.5f;
     private float fireRate = 1;
     private StatManager manager;
+    private AudioSource targetFireSound;
 
     void Start()
     {
         manager = GameObject.Find("StatManager").GetComponent<StatManager>();
+        targetFireSound = GameObject.Find("TargetFireSound").GetComponent<AudioSource>();
         
         numSpawned++;
         //Debug.Log("Spawned: "+ numSpawned);
@@ -58,6 +60,7 @@ public class Target : MonoBehaviour
 
     void FireAtPlayer()
     {
+        targetFireSound.Play();
         manager.DamagePlayer();
     }
 }

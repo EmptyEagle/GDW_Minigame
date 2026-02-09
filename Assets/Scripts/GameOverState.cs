@@ -13,7 +13,7 @@ public class GameOverState : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             OnRetry();
         }
