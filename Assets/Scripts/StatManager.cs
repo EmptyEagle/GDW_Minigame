@@ -12,7 +12,7 @@ public class StatManager : MonoBehaviour
 	void Start()
     {
         gameOverCanvas.SetActive(false);
-        playerHealth = 3;
+        playerHealth = 25;
         textHealth.text = "Health: "+playerHealth;
         playerScore = 0;
         textScore.text = "Score: "+playerScore;

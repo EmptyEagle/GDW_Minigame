@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     public AudioSource cannonLaunchSound;
     public AudioSource cannonReloadSound;
+    public Material cannonMaterial;
     
     // Update is called once per frame
     void Update()

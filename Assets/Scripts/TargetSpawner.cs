@@ -1,10 +1,12 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
     public GameObject targetPrefab;
     private float startDelay = 4;
-    private float spawnRate = 5;
+    private int spawnRateLevel = -1;
+    private float[] spawnRates = {5f, 4f, 3.5f};
     private float horizontalRange = 10;
     private float verticalRange = 10;
     private float zStart = 50;
@@ -12,7 +14,22 @@ public class TargetSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("SpawnTarget", startDelay, spawnRate);
+        IncreaseSpawnRate();
+    }
+
+    public void IncreaseSpawnRate()
+    {
+        if (spawnRateLevel == spawnRates.Length - 1)
+        {
+            return;
+        }
+        else
+        {
+            spawnRateLevel++;
+            Debug.Log("Spawn delay now " + spawnRates[spawnRateLevel]);
+            CancelInvoke();
+            InvokeRepeating("SpawnTarget", startDelay, spawnRates[spawnRateLevel]);
+        }
     }
 
     void SpawnTarget()

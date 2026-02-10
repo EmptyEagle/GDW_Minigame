@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -12,17 +13,27 @@ public class Target : MonoBehaviour
     private bool isDangerZone;
     private float fireDelay = 0.5f;
     private float fireRate = 1;
+    private float damageDelay = 0.25f;
     private StatManager manager;
     private AudioSource targetFireSound;
+    private TargetSpawner targetSpawner;
 
     void Start()
     {
         manager = GameObject.Find("StatManager").GetComponent<StatManager>();
         targetFireSound = GameObject.Find("TargetFireSound").GetComponent<AudioSource>();
+        targetSpawner = GameObject.Find("TargetSpawner").GetComponent<TargetSpawner>();
         
         numSpawned++;
         //Debug.Log("Spawned: "+ numSpawned);
 
+        // Increasing spawn rate of targets
+        if (numSpawned == 11 || numSpawned == 19)
+        {
+            targetSpawner.IncreaseSpawnRate();
+        }
+
+        // Increasing speed of targets
         if (numSpawned > 15)
         {
             speed = speedThird;
@@ -49,7 +60,7 @@ public class Target : MonoBehaviour
         else if (!isDangerZone)
         {
             GetComponent<Renderer>().material = dangerZoneMaterial;
-            InvokeRepeating("FireAtPlayer", fireDelay, fireRate);
+            InvokeRepeating("FireAtPlayer", fireDelay, damageDelay);
             isDangerZone = true;
         }
         if (isDangerZone)
