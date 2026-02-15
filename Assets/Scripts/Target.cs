@@ -12,7 +12,6 @@ public class Target : MonoBehaviour
     public Material dangerZoneMaterial;
     private bool isDangerZone;
     private float fireDelay = 0.5f;
-    private float fireRate = 1;
     private float damageDelay = 0.25f;
     private StatManager manager;
     private AudioSource targetFireSound;

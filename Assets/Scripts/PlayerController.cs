@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,11 +7,14 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed;
     public float maxRangeHorizontal = 50;
     public float maxRangeVertical = 50;
-    private bool canFire = true;
-    public GameObject projectilePrefab;
-    public AudioSource cannonLaunchSound;
-    public AudioSource cannonReloadSound;
-    public Material cannonMaterial;
+    private FireCannonball fireScript;
+    private ApplyPowerups activePowerups;
+
+    void Start()
+    {
+        fireScript = GetComponent<FireCannonball>();
+        activePowerups = GetComponent<ApplyPowerups>();
+    }
     
     // Update is called once per frame
     void Update()
@@ -22,6 +24,12 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
         transform.Rotate(Vector3.up * horizontalInput * turnSpeed * Time.deltaTime, Space.World);
         transform.Rotate(Vector3.right * verticalInput * turnSpeed * Time.deltaTime);
+        if (activePowerups.CheckPowerup(0))
+        {
+            // Double speed powerup
+            transform.Rotate(Vector3.up * horizontalInput * turnSpeed * Time.deltaTime, Space.World);
+            transform.Rotate(Vector3.right * verticalInput * turnSpeed * Time.deltaTime);
+        }
         //Debug.Log("Local angle: "+transform.localEulerAngles);
         //Debug.Log("World angle: "+transform.eulerAngles);
         if (transform.localEulerAngles.y > maxRangeHorizontal && transform.localEulerAngles.y < 180)
@@ -42,19 +50,9 @@ public class PlayerController : MonoBehaviour
         }
         
         // Player firing projectiles
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && canFire)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)))
         {
-            StartCoroutine(FireProjectile());
+            fireScript.AttemptFire();
         }
-    }
-
-    IEnumerator FireProjectile()
-    {
-        canFire = false;
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
-        cannonLaunchSound.Play();
-        yield return new WaitForSeconds(2);
-        canFire = true;
-        cannonReloadSound.Play();
     }
 }

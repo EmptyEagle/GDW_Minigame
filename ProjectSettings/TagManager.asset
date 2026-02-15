@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Projectile
+  - Powerup_Speed
+  - Powerup_DoubleLaunch
+  - Powerup_QuickReload
   layers:
   - Default
   - TransparentFX
