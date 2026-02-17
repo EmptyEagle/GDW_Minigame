@@ -10,6 +10,7 @@ public class ApplyPowerups : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        StopCoroutine("PowerupStart");
         activePowerups = new bool[3];
         foreach (GameObject visual in powerupVisuals)
         {

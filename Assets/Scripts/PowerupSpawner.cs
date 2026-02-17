@@ -8,6 +8,7 @@ public class PowerupSpawner : MonoBehaviour
     private GameObject chosenPowerup;
     private float startDelay = 11;
     private float spawnRate = 12;
+    public ApplyPowerups applyPowerups;
 
     void Start()
     {
@@ -18,6 +19,11 @@ public class PowerupSpawner : MonoBehaviour
     {
         Debug.Log("Spawning powerup");
         chosenPowerup = powerupPrefabs[Random.Range(0, powerupPrefabs.Length)];
+        if (applyPowerups.CheckPowerup(System.Array.IndexOf(powerupPrefabs, chosenPowerup)))
+        {
+            // Reroll powerup to spawn if player currently has the rolled one
+            chosenPowerup = powerupPrefabs[Random.Range(0, powerupPrefabs.Length)];
+        }
         if (Random.Range(0, 2) == 0)
         {
             xStart = spawnXRange;

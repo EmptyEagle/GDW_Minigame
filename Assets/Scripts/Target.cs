@@ -5,9 +5,11 @@ public class Target : MonoBehaviour
 {
     private static int numSpawned;
     private float speed;
-    public float speedFirst = 4f;
-    public float speedSecond = 6f;
-    public float speedThird = 7f;
+    private float speedFirst = 4f;
+    private float speedSecond = 5.3f;
+    private float speedThird = 6.5f;
+    private float speedFourth = 7f;
+    private float speedFifth = 7.3f;
     private float zStop = 15;
     public Material dangerZoneMaterial;
     private bool isDangerZone;
@@ -27,13 +29,23 @@ public class Target : MonoBehaviour
         //Debug.Log("Spawned: "+ numSpawned);
 
         // Increasing spawn rate of targets
-        if (numSpawned == 11 || numSpawned == 19)
+        if (numSpawned == 11 || numSpawned == 19 || numSpawned == 26 || numSpawned == 33 || numSpawned == 40 || numSpawned == 56)
         {
             targetSpawner.IncreaseSpawnRate();
         }
 
         // Increasing speed of targets
-        if (numSpawned > 15)
+        if (numSpawned > 58)
+        {
+            speed = speedFifth;
+            //Debug.Log("Level 5");
+        }
+        else if (numSpawned > 32)
+        {
+            speed = speedFourth;
+            //Debug.Log("Level 4");
+        }
+        else if (numSpawned > 15)
         {
             speed = speedThird;
             //Debug.Log("Level 3");
@@ -46,6 +58,7 @@ public class Target : MonoBehaviour
         else
         {
             speed = speedFirst;
+            //Debug.Log("Level 1");
         }
     }
     

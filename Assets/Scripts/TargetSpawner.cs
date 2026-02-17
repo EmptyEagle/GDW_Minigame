@@ -6,7 +6,7 @@ public class TargetSpawner : MonoBehaviour
     public GameObject targetPrefab;
     private float startDelay = 4;
     private int spawnRateLevel = -1;
-    private float[] spawnRates = {5f, 4f, 3.5f};
+    private float[] spawnRates = {5f, 4f, 3.5f, 3.2f, 3f, 2.8f, 2.7f};
     private float horizontalRange = 10;
     private float verticalRange = 10;
     private float zStart = 50;
