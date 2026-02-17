@@ -5638,7 +5638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312, y: -57}
+  m_AnchoredPosition: {x: 312, y: -117}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695185323
@@ -5654,14 +5654,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.7461271, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e7a2fa7d2d0deca4ca66121c86b751dd, type: 3}
+  m_Texture: {fileID: 2800000, guid: 75912e1de12a9ca4db91c8a50870283f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6652,6 +6652,7 @@ GameObject:
   - component: {fileID: 857536209}
   - component: {fileID: 857536210}
   - component: {fileID: 857536211}
+  - component: {fileID: 857536212}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -6777,6 +6778,18 @@ MonoBehaviour:
   - {fileID: 695185321}
   - {fileID: 1223407740}
   - {fileID: 881386690}
+--- !u!114 &857536212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857536204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9826811764be454cb3f55450f15e278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &881386690
 GameObject:
   m_ObjectHideFlags: 0
@@ -6811,7 +6824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312, y: 87}
+  m_AnchoredPosition: {x: 312, y: 27.000004}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881386692
@@ -6827,14 +6840,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85877466, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e7a2fa7d2d0deca4ca66121c86b751dd, type: 3}
+  m_Texture: {fileID: 2800000, guid: 14b0cad958671b44382d047f71a5b5eb, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -9168,7 +9181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312, y: 15}
+  m_AnchoredPosition: {x: 312, y: -44.999996}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223407742
@@ -9184,14 +9197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.6745283, b: 0.6745283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e7a2fa7d2d0deca4ca66121c86b751dd, type: 3}
+  m_Texture: {fileID: 2800000, guid: 937bbef32d77fb64ea31a498f75bab74, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
